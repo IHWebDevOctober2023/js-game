@@ -21,6 +21,8 @@ let racketSpeed = 10;
 
 let animationId;
 
+let aaaah = true;
+
 function moveBall() {
 
     if (directionXBall === "right") {
@@ -36,6 +38,7 @@ function moveBall() {
 
             const h1Element = document.createElement("h1");
             h1Element.innerText = "GAME OVER";
+            aaaah = false;
             gameBoardElement.appendChild(h1Element)
             cancelAnimationFrame(animationId);
         }
@@ -81,16 +84,18 @@ function checkForCollissions() {
 
 let frames = 0;
 function animate() {
-    moveBall();
-    checkForCollissions();
-    frames++;
+    if (aaaah) {
+        moveBall();
+        checkForCollissions();
+        frames++;
 
-    /*  if(frames %60 ===0){
-            console.log("Here we can increase the difficulty");
-        } */
+        /*  if(frames %60 ===0){
+                console.log("Here we can increase the difficulty");
+            } */
 
-    // We need to store the animation in a variable so we can stop it later
-    animationId = requestAnimationFrame(animate);
+        // We need to store the animation in a variable so we can stop it later
+        animationId = requestAnimationFrame(animate);
+    }
 }
 
-animate()
+animate();
