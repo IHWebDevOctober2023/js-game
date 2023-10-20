@@ -8,6 +8,9 @@ const gameBoardHeight = document.querySelector("#game-board").clientHeight;
 let positionY = 0;
 let positionX = 0;
 
+let directionY = "down"
+let directionX = "right"
+
 /* setInterval(()=>{
     position += 30
     ball.style.left = `${position}px`
@@ -15,27 +18,48 @@ let positionX = 0;
 },1000) */ 
 console.log(gameBoardWidth);
 function moveBall(){
+
+    if(directionX === "right"){
+        positionX += 1;
+        if(positionX >= gameBoardWidth - ball.clientWidth){
+            directionX = "left";
+        }
+    } else if (directionX === "left"){
+        positionX -= 1;
+        if(positionX <= 0){
+            console.log("GAME OVER");
+        }
+    }
+    
+    if(directionY === "down"){
+        positionY += 1;
+        if(positionY >= gameBoardHeight - ball.clientHeight){
+            directionY = "up";
+        }
+        
+    } else if (directionY === "up"){
+        positionY -= 1;
+        if(positionY <= 0){
+            directionY = "down";
+        }
+    }
+
+
     ball.style.left = `${positionX}px`
     ball.style.top = `${positionY}px`
     
-    if(positionY === gameBoardHeight){
-        positionY -= 1;
-    }else{
-        
-        positionX += 1;
-        positionY += 1;
-    }
+  
 }
 
 
 let frames = 0;
 function animate(){
-    // moveBall();
+    moveBall();
     frames ++;
 
-    if(frames %60 ===0){
+/*     if(frames %60 ===0){
         console.log("Here we increase the difficulty");
-    }
+    } */
     requestAnimationFrame(animate)
 }
 

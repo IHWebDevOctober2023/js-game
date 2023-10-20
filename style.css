@@ -1,10 +1,10 @@
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@ body{
 }
 
 
-#game-board{
+#game-board {
     background-color: grey;
     width: 80vw;
     height: 80vh;
@@ -26,5 +26,5 @@ body{
     background-color: rgb(212, 51, 51);
     position: absolute;
     left: 0;
-    top: 154px;
+    top: 0;
 }
