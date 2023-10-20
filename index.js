@@ -1,4 +1,4 @@
-console.log("it's working!");
+console.log("index.js is working!");
 
 const ball = document.querySelector("#ball");
 const racket = document.querySelector("#racket");
@@ -21,12 +21,6 @@ let racketSpeed = 10;
 
 let animationId;
 
-/* setInterval(()=>{
-    position += 30
-    ball.style.left = `${position}px`
-    ball.style.top = `${position}px`
-},1000) */
-console.log(gameBoardWidth);
 function moveBall() {
 
     if (directionXBall === "right") {
@@ -60,22 +54,17 @@ function moveBall() {
         }
     }
 
-
     ball.style.left = `${positionXBall}px`
     ball.style.top = `${positionYBall}px`
-
 
 }
 
 function moveRacket(event) {
-    console.log("THIS FUNCTION IS CALLED");
-
     if (event.key === "ArrowUp") {
         positionYRacket -= 10
     } else if (event.key === "ArrowDown") {
         positionYRacket += 10
     }
-
     racket.style.top = `${positionYRacket}px`
 }
 
@@ -96,8 +85,8 @@ function animate() {
     checkForCollissions();
     frames++;
 
-    /*     if(frames %60 ===0){
-            console.log("Here we increase the difficulty");
+    /*  if(frames %60 ===0){
+            console.log("Here we can increase the difficulty");
         } */
 
     // We need to store the animation in a variable so we can stop it later
